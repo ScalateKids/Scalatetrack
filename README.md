@@ -1,2 +1,2 @@
-# grooveclam
-University database course project 2015
+# Scalatetrack
+Scalatekids front-end for requirements tracking, SWE project Actorbase 2015-2016.
