@@ -113,6 +113,23 @@ class Requirement {
         $req->execute(array('code' => $delRequirement));
 	}
 
+    public static function functionalRequirements() {
+        $db = Db::getInstance();
+        $list = array();
+        $req = $db->query('SELECT DISTINCT * FROM requirements');
+        foreach($req->fetchAll() as $rq) {
+            $src = array();
+		    $r = $db->prepare('SELECT s.* FROM sources s INNER JOIN sourceRequirements sr ON(s.name = sr.source_name) WHERE sr.requirement_code = :rcode');
+		    $r->execute(array('rcode' => $rq['code]));
+		    foreach($r->fetchAll() as $s) {
+			    $src[] = new Sources($s['name']);
+		    }
+            $obj = new Requirement($rq['code'], $rq['priority'], $rq['type'], $rq['satisfied'], $rq['description'], $src);
+            $list[] = $obj;
+        }
+        return $list;
+    }
+
 	public static function reqSources() {
 		$db = Db::getInstance();
 		$list = array();

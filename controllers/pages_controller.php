@@ -54,7 +54,25 @@ class PagesController {
 		} else {
 			$rs = Requirement::reqSources();
 			$sr = Requirement::sourcesReq();
-			$tex = "\subsection{Tracciamento Requisiti-Fonti}<br>
+            $frq = Requirement::functionalRequirements();
+			$tex = "\subsection{Requisiti funzionali}<br>
+                    \begin{table}[H]<br>
+                    \centering<br>
+                    \caption{Tabella requisiti funzionali}<br>
+                    \begin{tabular}{|c|c|c|c|}<br>
+                    \hline<br>
+                    \\textbf{Requisito} & \\textbf{Tipologia} & \\textbf{Descrizione} & \\textbf{Fonti}\\\\<br>
+                    \hline<br>";
+            foreach($frq as $funcReq) {
+                $tex .= $funcReq->getCode() . " & \multiLineCell{" . $funcReq->getType() . "\\\\" . $funcReq->getPriority() . "} & " . $funcReq->getDescription() . " & \multiLineCell{";
+                foreach($frq->getSources() as $sources) {
+                    $tex .= $sources ."\\\\";
+                }
+                $tex .= "}\\\\<br>
+                        \hline<br>";
+            }
+
+            $tex .= "\subsection{Tracciamento Requisiti-Fonti}<br>
 					\begin{table}[H]<br>
 					\centering<br>
 					\caption{Tabella Requisiti-Fonti}<br>
