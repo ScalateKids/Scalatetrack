@@ -64,7 +64,16 @@ class PagesController {
                     \\textbf{Requisito} & \\textbf{Tipologia} & \\textbf{Descrizione} & \\textbf{Fonti}\\\\<br>
                     \hline<br>";
             foreach($frq as $funcReq) {
-                $tex .= $funcReq->getCode() . " & \multiLineCell{" . $funcReq->getType() . "\\\\" . $funcReq->getPriority() . "} & " . $funcReq->getDescription() . " & \multiLineCell{";
+                if($funcReq->getType() == 'F') {
+                    $type = 'Funzionale';
+                } elseif($funcReq->getType() == 'T') {
+                    $type = 'Tecnologico';
+                } elseif($funcReq->getType() == 'Q') {
+                    $type = 'Qualitativo';
+                } elseif($funcReq->getType() == 'B') {
+                    $type = 'Vincolo';
+                }
+                $tex .= $funcReq->getCode() . " & \multiLineCell{" . $type . "\\\\" . $funcReq->getPriority() . "} & " . $funcReq->getDescription() . " & \multiLineCell{";
                 foreach($funcReq->getSources() as $sources) {
                     $tex .= $sources->getName() ."\\\\";
                 }
