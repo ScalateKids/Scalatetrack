@@ -56,7 +56,7 @@ class PagesController {
 			$sr = Requirement::sourcesReq();
             $frq = Requirement::functionalRequirements();
 			$tex = "\subsection{Requisiti funzionali}<br>
-                    \begin{table}[H]<br>
+                    \begin{longtable}[H]<br>
                     \centering<br>
                     \caption{Tabella requisiti funzionali}<br>
                     \begin{tabular}{|c|c|c|c|}<br>
@@ -78,11 +78,12 @@ class PagesController {
                     $tex .= $sources->getName() ."\\\\";
                 }
                 $tex .= "}\\\\<br>
-                        \hline<br>";
+                        \hline<br>
+                        \\end{longtable}";
             }
 
             $tex .= "\subsection{Tracciamento Requisiti-Fonti}<br>
-					\begin{table}[H]<br>
+					\begin{longtable}[H]<br>
 					\centering<br>
 					\caption{Tabella Requisiti-Fonti}<br>
 					\begin{tabular}{|c|c|}<br>
@@ -98,9 +99,9 @@ class PagesController {
 						\hline<br>";
 			}
 			$tex .= "\\end{tabular}<br>
-					\\end{table}<br>
+					\\end{longtable}<br>
 					\subsection{Tracciamento Fonti-Requisiti}<br>
-					\begin{table}[H]<br>
+					\begin{longtable}[H]<br>
 					\centering<br>
 					\caption{Tabella Fonti-Requisiti}<br>
 					\begin{tabular}{|c|c|}<br>
@@ -116,7 +117,7 @@ class PagesController {
 						\hline<br>";
 			}
 			$tex .= "\\end{tabular}<br>
-					\\end{table}<br>";
+					\\end{longtable}<br>";
 			require_once('views/pages/output.php');
 		}
 	}
