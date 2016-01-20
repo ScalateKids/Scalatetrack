@@ -65,7 +65,7 @@ class PagesController {
                     \hline<br>";
             foreach($frq as $funcReq) {
                 $tex .= $funcReq->getCode() . " & \multiLineCell{" . $funcReq->getType() . "\\\\" . $funcReq->getPriority() . "} & " . $funcReq->getDescription() . " & \multiLineCell{";
-                foreach($frq->getSources() as $sources) {
+                foreach($funcReq->getSources() as $sources) {
                     $tex .= $sources ."\\\\";
                 }
                 $tex .= "}\\\\<br>
