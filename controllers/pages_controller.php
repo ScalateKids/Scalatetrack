@@ -77,7 +77,7 @@ class PagesController {
                 $tex .= "}\\\\<br>
                         \hline<br>";
             }
-            $tex .= "\end{longtable}<br>";
+            $tex .= "\\end{longtable}<br>";
 
             $tex .= "\subsection{Tracciamento Requisiti-Fonti}<br>
 					\begin{longtable}[H]{|p{5cm}|p{5cm}|}<br>
