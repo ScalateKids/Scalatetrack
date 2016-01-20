@@ -120,7 +120,7 @@ class Requirement {
         foreach($req->fetchAll() as $rq) {
             $src = array();
 		    $r = $db->prepare('SELECT s.* FROM sources s INNER JOIN sourceRequirements sr ON(s.name = sr.source_name) WHERE sr.requirement_code = :rcode');
-		    $r->execute(array('rcode' => $rq['code]));
+		    $r->execute(array('rcode' => $rq['code']));
 		    foreach($r->fetchAll() as $s) {
 			    $src[] = new Sources($s['name']);
 		    }
