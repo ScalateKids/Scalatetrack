@@ -56,10 +56,7 @@ class PagesController {
 			$sr = Requirement::sourcesReq();
             $frq = Requirement::functionalRequirements();
 			$tex = "\subsection{Requisiti funzionali}<br>
-                    \begin{longtable}[H]<br>
-                    \centering<br>
-                    \caption{Tabella requisiti funzionali}<br>
-                    \begin{tabular}{|c|c|c|c|}<br>
+                    \begin{longtable}[H]{|l|p{2cm}|p{6cm}|p{2cm}|}<br>
                     \hline<br>
                     \\textbf{Requisito} & \\textbf{Tipologia} & \\textbf{Descrizione} & \\textbf{Fonti}\\\\<br>
                     \hline<br>";
@@ -78,15 +75,12 @@ class PagesController {
                     $tex .= $sources->getName() ."\\\\";
                 }
                 $tex .= "}\\\\<br>
-                        \hline<br>
-                        \\end{longtable}";
+                        \hline<br>";
             }
+            $tex .= "\end{longtable}<br>";
 
             $tex .= "\subsection{Tracciamento Requisiti-Fonti}<br>
-					\begin{longtable}[H]<br>
-					\centering<br>
-					\caption{Tabella Requisiti-Fonti}<br>
-					\begin{tabular}{|c|c|}<br>
+					\begin{longtable}[H]{|p{5cm}|p{5cm}|}<br>
 					\hline<br>
 					\\textbf{Requisito} & \\textbf{Fonti}\\\\<br>
 					\hline<br>";
@@ -98,13 +92,9 @@ class PagesController {
 				$tex .= "}\\\\<br>
 						\hline<br>";
 			}
-			$tex .= "\\end{tabular}<br>
-					\\end{longtable}<br>
+			$tex .= "\\end{longtable}<br>
 					\subsection{Tracciamento Fonti-Requisiti}<br>
-					\begin{longtable}[H]<br>
-					\centering<br>
-					\caption{Tabella Fonti-Requisiti}<br>
-					\begin{tabular}{|c|c|}<br>
+					\begin{longtable}[H]{|p{5cm}|p{5cm}|}<br>
 					\hline<br>
 					\\textbf{Fonte} & \\textbf{Requisiti}\\\\<br>
 					\hline<br>";
@@ -116,8 +106,7 @@ class PagesController {
 				$tex .= "}\\\\<br>
 						\hline<br>";
 			}
-			$tex .= "\\end{tabular}<br>
-					\\end{longtable}<br>";
+			$tex .= "\\end{longtable}<br>";
 			require_once('views/pages/output.php');
 		}
 	}
