@@ -4,7 +4,14 @@ class RequirementsController {
 		if(!isset($_SESSION['logged'])) {
 			return call('pages', 'home');
 		} else {
-			$requirements = Requirement::all();
+#			$requirements = Requirement::all();
+			$requirements = Requirement::sorted_all();
+			sort($requirements);
+			#usort($requirements, function ($item1, $item2) {
+			 #	if ( floatval($item1->getCode()) == floatval($item2->getCode()) )
+			#		return 0;
+			#	return ( floatval($item1->getCode()) > floatval($item2->getCode()) ) ? 1 : -1;
+		#	});
 			require_once('views/requirements/index.php');
 		}
 	}

@@ -55,8 +55,8 @@ class PagesController {
 			$rs = Requirement::reqSources();
 			$sr = Requirement::sourcesReq();
             $frq = Requirement::functionalRequirements();
-			$tex = "\subsection{Requisiti funzionali}<br>
-                    \begin{longtable}[H]{|l|p{2cm}|p{6cm}|p{2cm}|}<br>
+			$tex = "\section{Requisiti funzionali}<br>
+                    \begin{longtable}[H]{|l|p{2cm}|p{6cm}|p{4cm}|}<br>
                     \hline<br>
                     \\textbf{Requisito} & \\textbf{Tipologia} & \\textbf{Descrizione} & \\textbf{Fonti}\\\\<br>
                     \hline<br>";
@@ -79,8 +79,8 @@ class PagesController {
             }
             $tex .= "\\end{longtable}<br>";
 
-            $tex .= "\subsection{Tracciamento Requisiti-Fonti}<br>
-					\begin{longtable}[H]{|p{5cm}|p{5cm}|}<br>
+            $tex .= "\section{Tracciamento Requisiti-Fonti}<br>
+					\begin{longtable}[H]{|p{5.5cm}|p{5.5cm}|}<br>
 					\hline<br>
 					\\textbf{Requisito} & \\textbf{Fonti}\\\\<br>
 					\hline<br>";
@@ -93,8 +93,8 @@ class PagesController {
 						\hline<br>";
 			}
 			$tex .= "\\end{longtable}<br>
-					\subsection{Tracciamento Fonti-Requisiti}<br>
-					\begin{longtable}[H]{|p{5cm}|p{5cm}|}<br>
+					\section{Tracciamento Fonti-Requisiti}<br>
+					\begin{longtable}[H]{|p{5.5cm}|p{5.5cm}|}<br>
 					\hline<br>
 					\\textbf{Fonte} & \\textbf{Requisiti}\\\\<br>
 					\hline<br>";

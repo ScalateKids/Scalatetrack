@@ -42,6 +42,23 @@ class Requirement {
 		return $this->sources;
 	}
 
+	public static function sorted_all() {
+		$list = array();
+		$db = Db::getInstance();
+		$req = $db->query('SELECT * FROM requirements');
+		foreach($req->fetchAll() as $reqs) {
+			$src = array();
+			$r = $db->prepare('SELECT s.* FROM sources s INNER JOIN sourceRequirements sr ON(s.name = sr.source_name) WHERE sr.requirement_code = :rcode');
+			$r->execute(array('rcode' => $reqs['code']));
+			foreach($r->fetchAll() as $s) {
+				$src[] = new Sources($s['name']);
+			}
+			$reqs['code'] = substr($reqs['code'], 3);
+			$list[] = new Requirement($reqs['code'], $reqs['priority'], $reqs['type'], $reqs['satisfied'], $reqs['description'], $src);
+		}
+		return $list;
+	}
+
 	// get all requirements
 	public static function all() {
 		$list = array();
