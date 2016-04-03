@@ -5,10 +5,12 @@ echo '<h3>Hello there</h3>';
     <div class="addstuff-circle">
         <a class="addstuff" href="?controller=pages&action=download_tex">&#8681;</a>
     </div>
+</div>
+<div class="addstuff">
     <div class="addstuff-circle">
         <a class="addstuff" href="?controller=pages&action=download_ctex">&#8681;</a>
     </div>
-</div>
+ </div>
 <table class="table floated" style="width:20%;">
     <caption>Requirements</caption>
 	<thead>

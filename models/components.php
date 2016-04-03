@@ -101,7 +101,7 @@ class Component {
         $list = array();
         $req = $db->query('SELECT DISTINCT requirement_code FROM requirementComponents');
         foreach($req->fetchAll() as $rq) {
-            $src = $db->prepare('SELECT component_name  FROM sourceRequirements WHERE `requirement_code` = :rq');
+            $src = $db->prepare('SELECT component_name  FROM requirementComponents WHERE `requirement_code` = :rq');
             $src->execute(array('rq' => $rq['requirement_code']));
             $l = array();
             foreach($src->fetchAll() as $s) {

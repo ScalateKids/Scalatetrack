@@ -33,7 +33,7 @@ function call($controller, $action, $code = 0) {
 }
 // array containing all action for every controller
 $controllers = array(
-	'pages' => array('home', 'error', 'login', 'checkuser', 'logout', 'download_tex'),
+	'pages' => array('home', 'error', 'login', 'checkuser', 'logout', 'download_tex', 'download_ctex'),
 	'requirements' => array('index', 'show', 'add', 'save', 'alter', 'save_edit', 'remove'),
     'components' => array('index', 'show', 'add', 'save', 'alter', 'save_edit', 'remove'),
 	'usecases' => array('index', 'show', 'add', 'alter', 'save', 'save_edit', 'remove'),
