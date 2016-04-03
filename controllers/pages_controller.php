@@ -33,7 +33,7 @@ class PagesController {
 	public function checkuser() {
 		$uname = $_POST['uname'];
 		$passw = $_POST['passw'];
-		if($uname == 'scalatekids' && $passw == 'riccardino') {
+		if($uname == 'uname' && $passw == 'pass') {
 			$session = KidSession::getInstance();
 			$session->__set('logged', 1);
 			header('Location:/scalatetrack');
