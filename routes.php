@@ -7,6 +7,7 @@ function call($controller, $action, $code = 0) {
 			require_once('models/user.php');
 			require_once('models/sources.php');
 			require_once('models/requirements.php');
+            require_once('models/components.php');
 			$controller = new PagesController();
 	 	break;
 		case 'requirements':

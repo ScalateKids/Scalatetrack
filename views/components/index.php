@@ -1,4 +1,4 @@
-<h2>REQUIREMENTS LIST (<?php echo count($requirements); ?>)</h2>
+<h2>REQUIREMENTS LIST (<?php echo count($components); ?>)</h2>
 <div class="addstuff">
      <div class="addstuff-circle">
      <a class="addstuff" href="?controller=components&action=add">&#10010;</a>

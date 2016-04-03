@@ -5,7 +5,7 @@ class ComponentsController {
             return call('pages', 'home');
         } else {
             $components = Component::all();
-            sort($requirements);
+            sort($components);
             require_once('views/components/index.php');
         }
     }
