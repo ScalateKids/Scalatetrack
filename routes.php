@@ -14,6 +14,11 @@ function call($controller, $action, $code = 0) {
 			require_once('models/sources.php');
 			$controller = new RequirementsController();
 		break;
+        case 'components':
+			require_once('models/components.php');
+			require_once('models/requirements.php');
+			$controller = new ComponentsController();
+		break;
 		case 'usecases':
 			require_once('models/usecases.php');
 			$controller = new UsecasesController();
@@ -29,6 +34,7 @@ function call($controller, $action, $code = 0) {
 $controllers = array(
 	'pages' => array('home', 'error', 'login', 'checkuser', 'logout', 'download_tex'),
 	'requirements' => array('index', 'show', 'add', 'save', 'alter', 'save_edit', 'remove'),
+    'components' => array('index', 'show', 'add', 'save', 'alter', 'save_edit', 'remove'),
 	'usecases' => array('index', 'show', 'add', 'alter', 'save', 'save_edit', 'remove'),
 	'sources' => array('index', 'show', 'alter', 'remove', 'add', 'save', 'save_edit')
 );

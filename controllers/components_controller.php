@@ -1,26 +1,20 @@
 <?php
-class RequirementsController {
+class ComponentsController {
     public function index() {
         if(!isset($_SESSION['logged'])) {
             return call('pages', 'home');
         } else {
-            #			$requirements = Requirement::all();
-            $requirements = Requirement::sorted_all();
+            $components = Component::all();
             sort($requirements);
-            #usort($requirements, function ($item1, $item2) {
-            #	if ( floatval($item1->getCode()) == floatval($item2->getCode()) )
-            #		return 0;
-            #	return ( floatval($item1->getCode()) > floatval($item2->getCode()) ) ? 1 : -1;
-            #	});
-            require_once('views/requirements/index.php');
+            require_once('views/components/index.php');
         }
     }
     public function add() {
         if(!isset($_SESSION['logged'])) {
             return call('pages', 'home');
         } else {
-            $sources = Sources::all();
-            require_once('views/requirements/add.php');
+            $requirements = Requirement::all();
+            require_once('views/components/add.php');
         }
     }
     public function save() {
@@ -28,8 +22,8 @@ class RequirementsController {
             return call('pages', 'home');
         } else {
             $post_data = $_POST;
-            Requirement::add($post_data);
-            return call('requirements', 'index');
+            Component::add($post_data);
+            return call('components', 'index');
         }
     }
     public function save_edit() {
@@ -40,8 +34,8 @@ class RequirementsController {
                 return call('pages', 'error', 2);
             }
             $post_data = $_POST;
-            Requirement::save($post_data, $_GET['code']);
-            return call('requirements', 'index');
+            Component::save($post_data, $_GET['code']);
+            return call('components', 'index');
         }
     }
     public function remove() {
@@ -51,8 +45,8 @@ class RequirementsController {
             if(!isset($_GET['code'])) {
                 return call('pages', 'error', 2);
             }
-            Requirement::remove($_GET['code']);
-            return call('requirements', 'index');
+            Component::remove($_GET['code']);
+            return call('components', 'index');
         }
     }
     public function alter() {
@@ -62,16 +56,16 @@ class RequirementsController {
             if(!isset($_GET['code'])) {
                 return call('pages', 'error', 2);
             }
-            $sources = Sources::all();
-            $requirement = Requirement::get($_GET['code']);
-            require_once('views/requirements/alter.php');
+            $requirements = Requirement::all();
+            $component = Component::get($_GET['code']);
+            require_once('views/components/alter.php');
         }
     }
     public function show() {
         if(!isset($_SESSION['logged'])) {
             return call('pages', 'home');
         } else {
-            require_once('views/requirements/show.php');
+            require_once('views/components/show.php');
         }
     }
 }

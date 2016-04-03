@@ -27,7 +27,7 @@
 				<td class='highlight'><?php echo $requirement->getSatisfied(); ?></td>
 			    <td class='highlight'><?php foreach($requirement->getSources() as $src) { echo $src->getName()."\n";}?></td>
 				<td class='highlight'><?php echo $requirement->getDescription(); ?></td>
-			    <td class='highlight'><a href="?controller=requirements&action=alter&code=<?php 
+			    <td class='highlight'><a href="?controller=requirements&action=alter&code=<?php
 			$code = '';
 			if ($requirement->getPriority() == 'Obbligatorio') {
 				$code = 'OB';
@@ -49,7 +49,7 @@
 			<td><?php echo $requirement->getSatisfied(); ?></td>
             <td><?php foreach($requirement->getSources() as $src) { echo $src->getName()."\n";}?></td>
 			<td><?php echo $requirement->getDescription(); ?></td>
-            <td><a href="?controller=requirements&action=alter&code=<?php 
+            <td><a href="?controller=requirements&action=alter&code=<?php
 		$code = '';
 		if ($requirement->getPriority() == 'Obbligatorio') {
 			$code = 'OB';
@@ -68,3 +68,4 @@
 	<?php } ?>
 </tbody>
 </table>
+
